@@ -21,7 +21,12 @@ export default function Home() {
     const { name, email } = user
     const data = { name, email }
     try {
-      await axios.post(`/api/user`, data)
+      await axios.post(`/api/user`, data, {
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+      })
     } catch (error) {
       console.log('Error', { error })
     }
