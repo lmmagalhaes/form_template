@@ -2,13 +2,13 @@ import { User } from '../../models/User'
 import { mongooseConnect } from '@/lib/mongoose'
 import Cors from 'cors'
 
-// Inicializa o middleware de CORS
 const cors = Cors({
-  methods: ['GET', 'HEAD', 'POST'],
-  origin: '*', // ou especifique o domínio permitido, como 'https://example.com'
+  methods: ['GET', 'POST', 'OPTIONS'],
+  origin: '*',
+  allowedHeaders: ['Content-Type', 'Authorization'],
 })
 
-// Helper para executar middleware de CORS
+// Helper to run middleware
 function runMiddleware(req, res, fn) {
   return new Promise((resolve, reject) => {
     fn(req, res, (result) => {
@@ -21,11 +21,16 @@ function runMiddleware(req, res, fn) {
 }
 
 export default async function handler(req, res) {
-  // Executa o middleware de CORS
   await runMiddleware(req, res, cors)
 
   const { method } = req
+
   await mongooseConnect()
+
+  if (method === 'OPTIONS') {
+    res.status(200).end()
+    return
+  }
 
   if (method === 'GET') {
     if (req.query?.id) {
