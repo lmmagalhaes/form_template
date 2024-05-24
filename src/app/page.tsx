@@ -4,6 +4,8 @@ import Modal from '@/components/modal'
 import axios from 'axios'
 import { useState } from 'react'
 
+const envVariable = process.env.NEXT_PUBLIC_BASE_API_URL
+
 export default function Home() {
   const [user, setUser] = useState({
     name: '',
@@ -19,7 +21,7 @@ export default function Home() {
     const { name, email } = user
     const data = { name, email }
     try {
-      await axios.post('/api/user', data)
+      await axios.post(`${envVariable}/api/user`, data)
     } catch (error) {
       console.log('Error', { error })
     }
