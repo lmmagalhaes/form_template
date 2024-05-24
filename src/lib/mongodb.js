@@ -10,7 +10,6 @@ const options = {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 }
-console.log('option', options)
 
 let client
 let clientPromise
