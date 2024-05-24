@@ -6,7 +6,10 @@ if (!process.env.MONGODB_URI) {
 }
 
 const uri = process.env.MONGODB_URI
-const options = {}
+const options = {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+}
 
 let client
 let clientPromise
