@@ -1,10 +1,10 @@
 'use client'
 
 import axios from 'axios'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 
-export function User() {
+export default function User() {
   const [user, setUser] = useState({
     name: '',
     email: '',
@@ -61,5 +61,3 @@ export function User() {
     </div>
   )
 }
-
-export default User
