@@ -33,8 +33,8 @@ export default async function handler(req, res) {
   }
 
   if (method === 'GET') {
-    if (req.query?.id) {
-      res.json(await User.findOne({ _id: req.query.id }))
+    if (req.query.email) {
+      res.json(await User.findOne({ email: req.query.email }))
     } else {
       res.json(await User.find())
     }

@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import axios from 'axios'
 
 interface ModalProps {
   isOpen: boolean
@@ -6,11 +7,7 @@ interface ModalProps {
   email: string
 }
 
-const Modal: React.FC<ModalProps> = ({ isOpen, name, email }) => {
-  if (!isOpen) {
-    return null
-  }
-
+const Modal: React.FC<ModalProps> = ({ name, email }) => {
   return (
     <div className="h-screen flex justify-center items-center bg-slate-600 px-5">
       <div className="modal-box">
