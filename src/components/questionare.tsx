@@ -19,7 +19,6 @@ export default function Questionary({ title, onSelect }: Questionary) {
 
   return (
     <div className="bg-white p-12 w-96 max-w-full flex flex-col gap-3">
-      <h1>Avaliação Geral</h1>
       <p>{title}</p>
       <form>
         <div className="flex items-center gap-2 mb-4">

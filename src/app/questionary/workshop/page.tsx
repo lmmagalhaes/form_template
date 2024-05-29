@@ -18,6 +18,21 @@ export default function User() {
       title: 'Outro teste',
       answer: Evaluation.Excelente,
     },
+    {
+      id: 3,
+      title: 'Outro teste',
+      answer: Evaluation.Excelente,
+    },
+    {
+      id: 4,
+      title: 'Outro teste',
+      answer: Evaluation.Excelente,
+    },
+    {
+      id: 5,
+      title: 'Outro teste',
+      answer: Evaluation.Excelente,
+    },
   ])
 
   const onSelect = (questionary: any, answer: Evaluation) => {
@@ -48,18 +63,26 @@ export default function User() {
   }
 
   return (
-    <div className="h-screen flex justify-center items-center bg-slate-600 px-5">
-      <div className="h-screen flex flex-col justify-center items-center bg-slate-600 px-5">
-        {teste.map((questionary) => (
-          <Questionary
-            title={questionary.title}
-            onSelect={(answer) => onSelect(questionary, answer)}
-          />
-        ))}
+    <div className="min-h-screen flex justify-center items-center  bg-slate-600 px-5">
+      <div className="flex flex-col justify-center items-center w-full max-w-2xl bg-slate-600 px-5">
+        <div className="my-20 overflow-y-auto">
+          <div className="bg-white text-center pt-10">
+            <h1>Avaliação Geral</h1>
+          </div>
+          {teste.map((questionary) => (
+            <Questionary
+              title={questionary.title}
+              onSelect={(answer) => onSelect(questionary, answer)}
+            />
+          ))}
 
-        <button className="btn btn-primary w-full" onClick={handleQuestionary}>
-          Enviar
-        </button>
+          <button
+            className="btn btn-primary w-full mt-4"
+            onClick={handleQuestionary}
+          >
+            Enviar
+          </button>
+        </div>
       </div>
     </div>
   )
