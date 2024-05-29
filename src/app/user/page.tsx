@@ -9,8 +9,6 @@ export default function User() {
     name: '',
     email: '',
   })
-  const [dataUser, setDataUser] = useState(null)
-
   const router = useRouter()
 
   const handleChange = (value: any, field: any) => {
