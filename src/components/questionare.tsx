@@ -1,5 +1,4 @@
 import { Evaluation } from '@/enum/evaluation'
-import axios from 'axios'
 import React, { useState } from 'react'
 
 interface Questionary {
@@ -25,7 +24,6 @@ export default function Questionary({ title, onSelect }: Questionary) {
           <input
             type="radio"
             id="excelente"
-            name="Evaluation"
             value={Evaluation.Excelente}
             checked={evaluation === Evaluation.Excelente}
             onChange={handleChange}
@@ -36,7 +34,6 @@ export default function Questionary({ title, onSelect }: Questionary) {
           <input
             type="radio"
             id="muitoBoa"
-            name="Evaluation"
             value={Evaluation.MuitoBoa}
             checked={evaluation === Evaluation.MuitoBoa}
             onChange={handleChange}
@@ -47,7 +44,6 @@ export default function Questionary({ title, onSelect }: Questionary) {
           <input
             type="radio"
             id="boa"
-            name="Evaluation"
             value={Evaluation.Boa}
             checked={evaluation === Evaluation.Boa}
             onChange={handleChange}
@@ -58,7 +54,6 @@ export default function Questionary({ title, onSelect }: Questionary) {
           <input
             type="radio"
             id="regular"
-            name="Evaluation"
             value={Evaluation.Regular}
             checked={evaluation === Evaluation.Regular}
             onChange={handleChange}
@@ -69,7 +64,6 @@ export default function Questionary({ title, onSelect }: Questionary) {
           <input
             type="radio"
             id="ruim"
-            name="Evaluation"
             value={Evaluation.Ruim}
             checked={evaluation === Evaluation.Ruim}
             onChange={handleChange}
