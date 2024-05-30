@@ -7,6 +7,7 @@ export default function ShowUser({ params }: any) {
   const [userInfo, setUserInfo] = useState({
     name: '',
     email: '',
+    cpf: '',
   })
   const { email } = params
   useEffect(() => {
@@ -23,8 +24,9 @@ export default function ShowUser({ params }: any) {
         <h3 className="font-bold text-lg">Parabéns</h3>
         <p className="py-4">Sua inscrição foi realizada com sucesso!</p>
         <p>Dados da inscrição</p>
-        <p className="py-2">{userInfo?.name}</p>
-        <p>{userInfo?.email}</p>
+        <p className="py-2">Nome: {userInfo?.name}</p>
+        <p className="py-2">E-mail: {userInfo?.email}</p>
+        <p className="py-2">CPF: {userInfo?.cpf}</p>
       </div>
     </div>
   )
