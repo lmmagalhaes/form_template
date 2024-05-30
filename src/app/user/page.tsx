@@ -3,11 +3,13 @@
 import axios from 'axios'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
+import InputMask from 'react-input-mask'
 
 export default function User() {
   const [user, setUser] = useState({
     name: '',
     email: '',
+    cpf: '',
   })
   const router = useRouter()
 
@@ -17,8 +19,8 @@ export default function User() {
 
   const handleRegister = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    const { name, email } = user
-    const data = { name, email }
+    const { name, email, cpf } = user
+    const data = { name, email, cpf }
     try {
       await axios.post(`/api/user`, data, {
         headers: {
@@ -52,6 +54,20 @@ export default function User() {
           value={user.email}
           onChange={(e) => handleChange(e.target.value, 'email')}
         />
+        <InputMask
+          mask="999.999.999-99"
+          value={user.cpf}
+          onChange={(e: any) => handleChange(e.target.value, 'cpf')}
+        >
+          {(inputProps: any) => (
+            <input
+              {...inputProps}
+              type="text"
+              placeholder="CPF"
+              className="input input-primary w-full"
+            />
+          )}
+        </InputMask>
         <button className="btn btn-primary w-full" type="submit">
           Cadastro
         </button>

@@ -41,10 +41,11 @@ export default async function handler(req, res) {
   }
 
   if (method === 'POST') {
-    const { name, email } = req.body
+    const { name, email, cpf } = req.body
     const userDoc = await User.create({
       name,
       email,
+      cpf,
     })
     res.json(userDoc)
   }
