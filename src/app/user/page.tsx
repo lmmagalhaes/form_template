@@ -3,7 +3,7 @@
 import axios from 'axios'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import InputMask from 'react-input-mask'
+import { IMaskInput } from 'react-imask'
 
 export default function User() {
   const [user, setUser] = useState({
@@ -54,12 +54,13 @@ export default function User() {
           value={user.email}
           onChange={(e) => handleChange(e.target.value, 'email')}
         />
-        <input
+        <IMaskInput
+          mask="000.000.000-00"
           type="text"
           placeholder="CPF"
           className="input input-primary w-full"
           value={user.cpf}
-          onChange={(e) => handleChange(e.target.value, 'cpf')}
+          onAccept={(value) => handleChange(value, 'cpf')}
         />
         <button className="btn btn-primary w-full" type="submit">
           Cadastro
