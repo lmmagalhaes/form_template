@@ -54,20 +54,13 @@ export default function User() {
           value={user.email}
           onChange={(e) => handleChange(e.target.value, 'email')}
         />
-        <InputMask
-          mask="999.999.999-99"
+        <input
+          type="text"
+          placeholder="CPF"
+          className="input input-primary w-full"
           value={user.cpf}
-          onChange={(e: any) => handleChange(e.target.value, 'cpf')}
-        >
-          {(inputProps: any) => (
-            <input
-              {...inputProps}
-              type="text"
-              placeholder="CPF"
-              className="input input-primary w-full"
-            />
-          )}
-        </InputMask>
+          onChange={(e) => handleChange(e.target.value, 'cpf')}
+        />
         <button className="btn btn-primary w-full" type="submit">
           Cadastro
         </button>
