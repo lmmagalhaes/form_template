@@ -7,6 +7,7 @@ import Questionary from '@/components/questionare'
 import { Evaluation } from '@/enum/evaluation'
 
 export default function User() {
+  const router = useRouter()
   const [teste, setTeste] = useState([
     {
       id: 1,
@@ -39,8 +40,6 @@ export default function User() {
     },
   ])
 
-  const router = useRouter()
-
   const onSelect = (questionary: any, answer: Evaluation) => {
     const newTeste = teste.map((currentTeste) =>
       currentTeste.id === questionary.id
@@ -62,7 +61,7 @@ export default function User() {
           'Content-Type': 'application/json',
         },
       })
-      router.push(`/success`)
+      router.push(`/finish`)
     } catch (error) {
       console.log('Error', { error })
     }
