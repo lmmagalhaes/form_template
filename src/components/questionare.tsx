@@ -33,16 +33,6 @@ export default function Questionary({ title, onSelect }: Questionary) {
         <div className="flex items-center gap-2 mb-4">
           <input
             type="radio"
-            id="muitoBoa"
-            value={Evaluation.MuitoBoa}
-            checked={evaluation === Evaluation.MuitoBoa}
-            onChange={handleChange}
-          />
-          <label htmlFor="muitoBoa">Muito boa</label>
-        </div>
-        <div className="flex items-center gap-2 mb-4">
-          <input
-            type="radio"
             id="boa"
             value={Evaluation.Boa}
             checked={evaluation === Evaluation.Boa}
@@ -64,11 +54,11 @@ export default function Questionary({ title, onSelect }: Questionary) {
           <input
             type="radio"
             id="ruim"
-            value={Evaluation.Ruim}
-            checked={evaluation === Evaluation.Ruim}
+            value={Evaluation.Insatisfatório}
+            checked={evaluation === Evaluation.Insatisfatório}
             onChange={handleChange}
           />
-          <label htmlFor="ruim">Ruim</label>
+          <label htmlFor="ruim">Insatisfatório</label>
         </div>
         <hr className="w-full mt-2 mb-4" />
       </form>

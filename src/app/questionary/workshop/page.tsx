@@ -10,30 +10,36 @@ export default function User() {
   const [teste, setTeste] = useState([
     {
       id: 1,
-      title: 'Teste',
+      title:
+        'Como você avalia a recepção e o processo de assinatura da presença via QRCode?',
       answer: Evaluation.Excelente,
     },
     {
       id: 2,
-      title: 'Outro teste',
+      title:
+        'Como você avalia a qualidade das respostas dos palestrantes na primeira rodada?',
       answer: Evaluation.Excelente,
     },
     {
       id: 3,
-      title: 'Outro teste',
+      title:
+        'Como você avalia a qualidade das respostas dos palestrantes na segunda rodada?',
       answer: Evaluation.Excelente,
     },
     {
       id: 4,
-      title: 'Outro teste',
+      title:
+        'Como você avalia a qualidade das respostas dos palestrantes na terceira rodada?',
       answer: Evaluation.Excelente,
     },
     {
       id: 5,
-      title: 'Outro teste',
+      title: 'Nota geral para a mesa redonda:',
       answer: Evaluation.Excelente,
     },
   ])
+
+  const router = useRouter()
 
   const onSelect = (questionary: any, answer: Evaluation) => {
     const newTeste = teste.map((currentTeste) =>
@@ -56,7 +62,7 @@ export default function User() {
           'Content-Type': 'application/json',
         },
       })
-      //   router.push(`/user/${encodeURIComponent(data.email)}`)
+      router.push(`/success`)
     } catch (error) {
       console.log('Error', { error })
     }
