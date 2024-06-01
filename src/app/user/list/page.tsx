@@ -30,7 +30,7 @@ export default function ListUsers() {
           <tr>
             <td>Nome</td>
             <td>Email</td>
-            <td>Parent category</td>
+            <td>CPF</td>
           </tr>
         </thead>
         <tbody>
