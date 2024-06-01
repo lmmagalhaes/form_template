@@ -1,4 +1,5 @@
 'use client'
+import LinearProgress from '@/components/progress'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 
@@ -35,30 +36,16 @@ export default function ListUsers() {
           </tr>
         </thead>
         <tbody>
-          {isLoading && (
-            <tr>
-              <td>
-                <progress className="progress progress-accent w-56"></progress>
-              </td>
-              <td>
-                <progress className="progress progress-accent w-56"></progress>
-              </td>
-              <td>
-                <progress className="progress progress-accent w-56"></progress>
-              </td>
-            </tr>
-          )}
           {user.map((e) => (
-            <>
-              <tr key={e.email}>
-                <td>{e.name}</td>
-                <td>{e.email}</td>
-                <td>{e.cpf}</td>
-              </tr>
-            </>
+            <tr key={e.email}>
+              <td>{e.name}</td>
+              <td>{e.email}</td>
+              <td>{e.cpf}</td>
+            </tr>
           ))}
         </tbody>
       </table>
+      {isLoading && <LinearProgress />}
     </div>
   )
 }
