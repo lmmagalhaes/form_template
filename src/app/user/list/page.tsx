@@ -10,12 +10,13 @@ interface User {
 
 export default function ListUsers() {
   const [user, setUser] = useState<User[]>([])
+  const [isLoading, setIsLoading] = useState(true)
 
   const fetchUser = async () => {
     try {
       const user = await axios.get(`/api/user`)
-      console.log('user', user.data)
       setUser(user.data)
+      setIsLoading(false)
     } catch (error) {}
   }
 
@@ -34,12 +35,27 @@ export default function ListUsers() {
           </tr>
         </thead>
         <tbody>
-          {user.map((e) => (
-            <tr key={e.email}>
-              <td>{e.name}</td>
-              <td>{e.email}</td>
-              <td>{e.cpf}</td>
+          {isLoading && (
+            <tr>
+              <td>
+                <progress className="progress progress-accent w-56"></progress>
+              </td>
+              <td>
+                <progress className="progress progress-accent w-56"></progress>
+              </td>
+              <td>
+                <progress className="progress progress-accent w-56"></progress>
+              </td>
             </tr>
+          )}
+          {user.map((e) => (
+            <>
+              <tr key={e.email}>
+                <td>{e.name}</td>
+                <td>{e.email}</td>
+                <td>{e.cpf}</td>
+              </tr>
+            </>
           ))}
         </tbody>
       </table>
