@@ -41,7 +41,9 @@ export default function User() {
         onSubmit={handleRegister}
         className="bg-white p-12 rounded-lg w-96 max-w-full flex justify-center items-center flex-col gap-3"
       >
-        <h1 className="font-bold text-xl mb-4">Cadastre-se na mesa redonda</h1>
+        <h1 className="font-bold text-xl mb-4">
+          Cadastre-se na Jornada de Direitos Humanos na Escola Básica
+        </h1>
         <input
           type="text"
           placeholder="Nome"
