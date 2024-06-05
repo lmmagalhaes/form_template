@@ -10,17 +10,19 @@ export default function User() {
     name: '',
     email: '',
     cpf: '',
+    rg: '',
+    whatsapp: '',
   })
   const router = useRouter()
 
-  const handleChange = (value: any, field: any) => {
+  const handleChange = (value: string, field: string) => {
     setUser((prev) => ({ ...prev, [field]: value }))
   }
 
   const handleRegister = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    const { name, email, cpf } = user
-    const data = { name, email, cpf }
+    const { name, email, cpf, rg, whatsapp } = user
+    const data = { name, email, cpf, rg, whatsapp }
     try {
       await axios.post(`/api/user`, data, {
         headers: {
@@ -55,12 +57,28 @@ export default function User() {
           onChange={(e) => handleChange(e.target.value, 'email')}
         />
         <IMaskInput
+          mask="00.000.000-00"
+          type="text"
+          placeholder="RG"
+          className="input input-primary w-full"
+          value={user.rg}
+          onAccept={(value: string) => handleChange(value, 'rg')}
+        />
+        <IMaskInput
           mask="000.000.000-00"
           type="text"
           placeholder="CPF"
           className="input input-primary w-full"
           value={user.cpf}
           onAccept={(value) => handleChange(value, 'cpf')}
+        />
+        <IMaskInput
+          mask="(00) 00000-0000"
+          type="text"
+          placeholder="What's app"
+          className="input input-primary w-full"
+          value={user.whatsapp}
+          onAccept={(value) => handleChange(value, 'whatsapp')}
         />
         <button className="btn btn-primary w-full" type="submit">
           Cadastro

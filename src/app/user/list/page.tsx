@@ -7,6 +7,8 @@ interface User {
   name: string
   email: string
   cpf: string
+  rg: string
+  whatsapp: string
 }
 
 export default function ListUsers() {
@@ -33,6 +35,8 @@ export default function ListUsers() {
             <td>Nome</td>
             <td>Email</td>
             <td>CPF</td>
+            <td>RG</td>
+            <td>What's app</td>
           </tr>
         </thead>
         <tbody>
@@ -41,6 +45,8 @@ export default function ListUsers() {
               <td>{e.name}</td>
               <td>{e.email}</td>
               <td>{e.cpf}</td>
+              <td>{e.rg}</td>
+              <td>{e.whatsapp}</td>
             </tr>
           ))}
         </tbody>

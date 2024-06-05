@@ -13,6 +13,14 @@ const UserSchema = new Schema({
     type: String,
     required: true,
   },
+  rg: {
+    type: String,
+    required: true,
+  },
+  whatsapp: {
+    type: String,
+    required: true,
+  },
 })
 
 export const User = models?.User || model('User', UserSchema)
