@@ -11,11 +11,11 @@ const UserSchema = new Schema({
   },
   cpf: {
     type: String,
-    required: true,
+    required: false,
   },
   rg: {
     type: String,
-    required: true,
+    required: false,
   },
   whatsapp: {
     type: String,

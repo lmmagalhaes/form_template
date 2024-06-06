@@ -13,15 +13,31 @@ export default function User() {
     rg: '',
     whatsapp: '',
   })
+
+  const [errors, setErrors] = useState({
+    name: false,
+    email: false,
+    whatsapp: false,
+  })
   const router = useRouter()
 
   const handleChange = (value: string, field: string) => {
     setUser((prev) => ({ ...prev, [field]: value }))
+    setErrors((prev) => ({ ...prev, [field]: false }))
   }
 
   const handleRegister = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const { name, email, cpf, rg, whatsapp } = user
+
+    if (!name || !email || !whatsapp) {
+      setErrors({
+        name: !name,
+        email: !email,
+        whatsapp: !whatsapp,
+      })
+      return
+    }
     const data = { name, email, cpf, rg, whatsapp }
     try {
       await axios.post(`/api/user`, data, {
@@ -51,6 +67,11 @@ export default function User() {
           value={user.name}
           onChange={(e) => handleChange(e.target.value, 'name')}
         />
+        {errors.name && (
+          <span className="text-red-500 text-xs text-left w-full">
+            * Nome é obrigatório.
+          </span>
+        )}
         <input
           type="email"
           placeholder="email"
@@ -58,6 +79,11 @@ export default function User() {
           value={user.email}
           onChange={(e) => handleChange(e.target.value, 'email')}
         />
+        {errors.email && (
+          <span className="text-red-500 text-xs text-left w-full">
+            * Email é obrigatório.
+          </span>
+        )}
         <IMaskInput
           mask="00.000.000-00"
           type="text"
@@ -66,6 +92,9 @@ export default function User() {
           value={user.rg}
           onAccept={(value: string) => handleChange(value, 'rg')}
         />
+        <span className="text-red-500 text-xs text-left w-full">
+          * necessário para emissão do certificado.
+        </span>
         <IMaskInput
           mask="000.000.000-00"
           type="text"
@@ -74,6 +103,9 @@ export default function User() {
           value={user.cpf}
           onAccept={(value) => handleChange(value, 'cpf')}
         />
+        <span className="text-red-500 text-xs text-left w-full">
+          * necessário para emissão do certificado.
+        </span>
         <IMaskInput
           mask="(00) 00000-0000"
           type="text"
@@ -82,6 +114,11 @@ export default function User() {
           value={user.whatsapp}
           onAccept={(value) => handleChange(value, 'whatsapp')}
         />
+        {errors.whatsapp && (
+          <span className="text-red-500 text-xs text-left w-full">
+            * Celular é obrigatório.
+          </span>
+        )}
         <button className="btn btn-primary w-full" type="submit">
           Cadastro
         </button>
