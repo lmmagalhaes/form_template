@@ -55,7 +55,7 @@ export default function User() {
   const handleQuestionary = async () => {
     const data = teste.map(({ id, answer }) => ({ id, evaluation: answer }))
     try {
-      await axios.post(`/api/questionary`, data, {
+      await axios.post(`/api/questionaryTalk`, data, {
         headers: {
           Accept: 'application/json',
           'Content-Type': 'application/json',
@@ -72,7 +72,7 @@ export default function User() {
       <div className="flex flex-col justify-center items-center w-full max-w-2xl bg-slate-600 px-5">
         <div className="my-20 overflow-y-auto">
           <div className="bg-white text-center pt-10">
-            <h1>Avaliação Oficina</h1>
+            <h1>Avaliação Mesa Redonda</h1>
           </div>
           {teste.map((questionary) => (
             <Questionary

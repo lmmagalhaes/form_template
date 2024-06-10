@@ -1,7 +1,6 @@
-import { User } from '../../../models/User'
+import { QuestionaryTalk } from '../../models/QuestionaryTalk'
 import { mongooseConnect } from '@/lib/mongoose'
 import Cors from 'cors'
-import mongoose from 'mongoose'
 
 const cors = Cors({
   methods: ['GET', 'POST', 'OPTIONS'],
@@ -33,17 +32,15 @@ export default async function handler(req, res) {
     return
   }
 
-  if (method === 'GET') {
-    const { id } = req.query // Extract id from the query string
-    if (!id) {
-      res.status(400).json({ error: 'ID parameter is required' })
-      return
+  if (method === 'POST') {
+    const evaluations = req.body
+    try {
+      const questionaryDocs = await QuestionaryTalk.insertMany(evaluations)
+      res.status(201).json(questionaryDocs)
+    } catch (error) {
+      res.status(500).json({ error: 'Failed to save evaluation' })
     }
-    let user = null
-    if (!user && mongoose.Types.ObjectId.isValid(id)) {
-      user = await User.findById(id)
-    }
-
-    res.json(user)
+  } else {
+    res.status(405).json({ message: 'Method Not Allowed' })
   }
 }
