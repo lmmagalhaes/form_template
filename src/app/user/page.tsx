@@ -13,6 +13,7 @@ export default function User() {
     rg: '',
     whatsapp: '',
   })
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   const [errors, setErrors] = useState({
     name: false,
@@ -38,6 +39,7 @@ export default function User() {
       })
       return
     }
+    setIsSubmitting(true)
     const data = { name, email, cpf, rg, whatsapp }
     try {
       await axios.post(`/api/user`, data, {
@@ -49,6 +51,8 @@ export default function User() {
       router.push(`/user/${encodeURIComponent(data.email)}`)
     } catch (error) {
       console.log('Error', { error })
+    } finally {
+      setIsSubmitting(false)
     }
   }
   return (
@@ -119,7 +123,11 @@ export default function User() {
             * Celular é obrigatório.
           </span>
         )}
-        <button className="btn btn-primary w-full" type="submit">
+        <button
+          className="btn btn-primary w-full"
+          type="submit"
+          disabled={isSubmitting}
+        >
           Cadastro
         </button>
       </form>
