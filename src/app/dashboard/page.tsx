@@ -52,9 +52,11 @@ export default function BarChart() {
     ],
   }
   return (
-    <div className="flex px-10">
-      <div className="w-1/2 px-3">
-        <Bar data={data} />
+    <div className="flex justify-center items-center h-screen">
+      <div className="w-full sm:w-2/3 lg:w-1/2 p-4">
+        <div className="relative h-96">
+          <Bar data={data} />
+        </div>
       </div>
     </div>
   )
