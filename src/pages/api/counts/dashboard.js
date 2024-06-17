@@ -34,6 +34,7 @@ export default async function handler(req, res) {
   }
 
   if (method === 'GET') {
+    const responses = []
     try {
       const evaluationCounts = await Questionary.aggregate([
         {
@@ -57,7 +58,9 @@ export default async function handler(req, res) {
         return acc
       }, {})
 
-      res.status(200).json(result)
+      responses.push(result)
+
+      res.status(200).json(responses)
     } catch (error) {
       res.status(500).json({ error: error.message })
     }
