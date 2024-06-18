@@ -21,12 +21,14 @@ export default function BarChart() {
   const [regular, setRegular] = useState(0)
   const [insatisfatori, setInsatisfatorio] = useState(0)
   const [boa, setBoa] = useState(0)
+  const [isLoading, setIsLoading] = useState(true)
   useEffect(() => {
     axios.get(`/api/counts/dashboard`).then((res) => {
       setExcelente(res.data[0].Excelente)
       setRegular(res.data[0].Regular)
       setInsatisfatorio(res.data[0].Boa)
       setBoa(res.data[0].Insatisfatorio)
+      setIsLoading(false)
     })
   }, [])
   const data = {
@@ -55,7 +57,13 @@ export default function BarChart() {
     <div className="flex justify-center items-center h-screen">
       <div className="w-full sm:w-2/3 lg:w-1/2 p-4">
         <div className="relative h-96">
-          <Bar data={data} />
+          {isLoading ? (
+            <div className="skeleton w-full h-full flex justify-center items-center">
+              Carregando dados ...
+            </div>
+          ) : (
+            <Bar data={data} />
+          )}
         </div>
       </div>
     </div>
