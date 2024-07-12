@@ -9,13 +9,53 @@ export default function Child() {
   const dados = [
     {
       name: 'Leonardo',
-      link: 'https://www.youtube.com/watch?v=jt_elekCECw',
+      link:
+        'https://drive.google.com/file/d/1R273e2tZS3EjxyFwNx98VZ3AGxCbc8a4/view?usp=drive_link',
     },
     {
       name: 'Jessica',
       link: 'https://www.youtube.com/watch?v=cgjekKyN_e4',
     },
-    // Adicione outros objetos conforme necessário
+    {
+      name: 'Noah',
+      link:
+        'https:drive.google.com/file/d/1bBZh5gNhrM1r82HLACBTD2dYjcwMWETU/view?usp=drive_link',
+    },
+    {
+      name: 'Marjorie',
+      link:
+        'https://drive.google.com/file/d/1Ens6tXDTBFhOYy9yelqgYHFNWVV9nAGL/view?usp=drive_link',
+    },
+    {
+      name: 'Eduarda',
+      link:
+        'https://drive.google.com/file/d/1HKDpnvvXCjUr6WDk8yzdeSP-LUatFXVo/view?usp=drive_link',
+    },
+    {
+      name: 'Izabelly',
+      link:
+        'https://drive.google.com/file/d/1t-GtGSEVw8ZpsJ1R9CxgChfDTBwNM8p-/view?usp=drive_link',
+    },
+    {
+      name: 'Isabella',
+      link:
+        'https://drive.google.com/file/d/1ZOgBuUodwx4l3OgqupnBKlRk2jlj8yGd/view?usp=drive_link',
+    },
+    {
+      name: 'João Henrique',
+      link:
+        'https://drive.google.com/file/d/1qYfMMT5ZR-yrReNOVPGa1ViCi-IueRyt/view?usp=drive_link',
+    },
+    {
+      name: 'Davi Lucca',
+      link:
+        'https://drive.google.com/file/d/1YvkJsspf4DtkFb0dW0WOUI2mGmUpaWI-/view?usp=drive_link',
+    },
+    {
+      name: 'Darlan',
+      link:
+        'https://drive.google.com/file/d/1CK7w0WnVtdRR_cpuWzGjomvWRYaOfkfw/view?usp=drive_link',
+    },
   ]
 
   const [errors, setErrors] = useState({
