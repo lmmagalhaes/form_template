@@ -17,7 +17,7 @@ export default function Child() {
       link: 'https://www.youtube.com/watch?v=cgjekKyN_e4',
     },
     {
-      name: 'Noah',
+      name: 'Noah ',
       link:
         'https:drive.google.com/file/d/1bBZh5gNhrM1r82HLACBTD2dYjcwMWETU/view?usp=drive_link',
     },
