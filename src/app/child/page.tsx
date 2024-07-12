@@ -19,7 +19,7 @@ export default function Child() {
     {
       name: 'Noah',
       link:
-        'https:drive.google.com/file/d/1bBZh5gNhrM1r82HLACBTD2dYjcwMWETU/view?usp=drive_link',
+        'https://drive.google.com/file/d/1bBZh5gNhrM1r82HLACBTD2dYjcwMWETU/view?usp=drive_link',
     },
     {
       name: 'Marjorie',
